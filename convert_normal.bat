@@ -6,8 +6,8 @@ set "SCRIPT_DIR=%~dp0"
 set "PY_SCRIPT=%SCRIPT_DIR%unity_normal_unswizzle.py"
 
 if not exist "%PY_SCRIPT%" (
-    echo Не найден файл unity_normal_unswizzle.py рядом с этим bat-файлом.
-    echo Положите оба файла в одну папку.
+    echo The file unity_normal_unswizzle.py was not found next to this bat file.
+    echo Place both files in the same folder.
     pause
     exit /b 1
 )
@@ -25,18 +25,18 @@ goto :found
 
 :not_found
 echo.
-echo Похоже, что на компьютере не установлен настоящий Python
-echo ^(если выше видно сообщение про Microsoft Store - это оно^).
+echo It seems that the computer doesn’t have the real Python installed
+echo ^(If you see a message about the Microsoft Store above, that’s it.^).
 echo.
-echo Установите Python с https://www.python.org/downloads/
-echo При установке ОБЯЗАТЕЛЬНО отметьте галочку "Add python.exe to PATH".
-echo После установки запустите install_dependencies.bat.
+echo Install Python from https://www.python.org/downloads/
+echo During installation, be sure to check the box “Add python.exe to PATH”.
+echo After installation, run install_dependencies.bat.
 pause
 exit /b 1
 
 :found
 if "%~1"=="" (
-    echo Перетащите на этот файл картинку ^(.dds, .png, .tga...^) - можно сразу несколько.
+    echo Drag the image onto this file. ^(.dds, .png, .tga...^) - you can have several at once.
     pause
     exit /b 0
 )
@@ -49,12 +49,12 @@ set "OUTDIR=%~dp1"
 set "OUT=%OUTDIR%%~n1_normal.png"
 
 echo ------------------------------------------------------------
-echo Конвертирую: %IN%
+echo I’m converting: %IN%
 "%PYCMD%" "%PY_SCRIPT%" "%IN%" "%OUT%"
 if errorlevel 1 (
-    echo [ОШИБКА] Не удалось сконвертировать: %IN%
+    echo [ERROR] Failed to convert: %IN%
 ) else (
-    echo Готово: %OUT%
+    echo Done: %OUT%
 )
 
 shift
@@ -62,5 +62,5 @@ goto :loop
 
 :done
 echo ------------------------------------------------------------
-echo Все файлы обработаны.
+echo All files have been processed.
 pause
