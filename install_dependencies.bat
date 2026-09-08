@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 chcp 65001 >nul
-echo Устанавливаю зависимости (Pillow, numpy)...
+echo I’m installing the dependencies (Pillow, numpy)...
 echo.
 
 set "PYCMD=py"
@@ -17,28 +17,28 @@ goto :found
 
 :not_found
 echo.
-echo Похоже, что на компьютере не установлен настоящий Python
-echo ^(если выше видно сообщение про Microsoft Store - это оно^).
+echo It seems that the computer doesn’t have the real Python installed
+echo ^(If you see a message about the Microsoft Store above, that’s it^).
 echo.
-echo Установите Python с https://www.python.org/downloads/
-echo При установке ОБЯЗАТЕЛЬНО отметьте галочку "Add python.exe to PATH".
-echo После установки закройте это окно и запустите install_dependencies.bat заново.
+echo Install Python from https://www.python.org/downloads/
+echo During installation, be sure to check the box “Add python.exe to PATH”.
+echo After installation, close this window and run install_dependencies.bat again.
 pause
 exit /b 1
 
 :found
-echo Использую команду: %PYCMD%
+echo I’m using the command: %PYCMD%
 "%PYCMD%" -m pip install --upgrade pip
 "%PYCMD%" -m pip install pillow numpy
 if errorlevel 1 goto :pip_failed
 
 echo.
-echo Готово. Теперь можно перетаскивать картинки на convert_normal.bat
+echo Done. Now you can drag images onto convert_normal.bat
 pause
 exit /b 0
 
 :pip_failed
 echo.
-echo Установка библиотек не удалась - посмотрите текст ошибки выше.
+echo The library installation failed — please review the error text above.
 pause
 exit /b 1
