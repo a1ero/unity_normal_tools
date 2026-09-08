@@ -2,7 +2,7 @@
 
 **Custom No-Sale License**
 
-Copyright (c) 2026 a1er0
+Copyright (c) 2026 a1ero
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to use, copy, modify, merge, publish, and distribute copies of the Software, subject to the following conditions:
 
